@@ -196,9 +196,7 @@ class ModelEvaluator:
                 # Log model artifact
                 model_path = f"artifacts/mlflow/{model_name}_model.pkl"
                 Path(model_path).parent.mkdir(parents=True, exist_ok=True)
-                with open(model_path, 'wb') as f:
-                    pickle.dump(model, f)
-                mlflow.log_artifact(model_path)
+                mlflow.sklearn.log_model(model, "model")
                 
                 logger.info(f"MLflow logging completed for {model_name}")
         
