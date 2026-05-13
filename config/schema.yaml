@@ -1,0 +1,96 @@
+columns:
+  age:
+    type: int
+    required: true
+    description: "Age of the credit applicant"
+    min_value: 18
+    max_value: 100
+    
+  monthly_income:
+    type: float
+    required: true
+    description: "Monthly income in dollars"
+    min_value: 0
+    
+  debt_ratio:
+    type: float
+    required: true
+    description: "Ratio of debt to income"
+    min_value: 0
+    max_value: 10
+    
+  credit_utilization:
+    type: float
+    required: true
+    description: "Percentage of available credit being used (0-1 or 0-100)"
+    
+  transaction_count_30d:
+    type: int
+    required: true
+    description: "Number of transactions in last 30 days"
+    min_value: 0
+    
+  avg_transaction_amount:
+    type: float
+    required: true
+    description: "Average transaction amount in dollars"
+    min_value: 0
+    
+  employment_type:
+    type: string
+    required: true
+    description: "Type of employment"
+    allowed_values: ["employed", "self_employed", "retired", "unemployed"]
+    
+  education_level:
+    type: string
+    required: true
+    description: "Highest education level"
+    allowed_values: ["high_school", "bachelor", "master", "phd"]
+    
+  region:
+    type: string
+    required: true
+    description: "Geographic region"
+    allowed_values: ["north", "south", "east", "west", "central"]
+    
+  device_type:
+    type: string
+    required: true
+    description: "Device used for application"
+    allowed_values: ["mobile", "desktop", "tablet"]
+    
+  last_payment_delay_days:
+    type: int
+    required: true
+    description: "Days since last payment was delayed (0 if no delay)"
+    min_value: 0
+    
+  internal_score_v2:
+    type: float
+    required: true
+    description: "Internal credit scoring algorithm v2"
+    min_value: 0
+    max_value: 1000
+    
+  target:
+    type: int
+    required: true
+    description: "Credit default indicator (0: No default, 1: Default)"
+    allowed_values: [0, 1]
+
+metadata:
+  categorical_columns:
+    - employment_type
+    - education_level
+    - region
+    - device_type
+  numerical_columns:
+    - age
+    - monthly_income
+    - debt_ratio
+    - credit_utilization
+    - transaction_count_30d
+    - avg_transaction_amount
+    - last_payment_delay_days
+    - internal_score_v2

@@ -35,6 +35,7 @@ list_of_files = [
     "notebooks/exp_notebook.ipynb",
 
     "config/config.yaml",
+    "config/schema.yaml",
 
     ".gitignore",
     ".env",
